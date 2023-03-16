@@ -3,6 +3,10 @@
 @{
 }
 
+@if(Model.Message != null)
+{
+    <div class="alert alert-info">@Model.Message</div>
+}
 <h1>@Model.Car.Description</h1>
 <div>@Model.Car.Id</div>
 <h3>@Model.Car.Gorivo</h3>

@@ -22,6 +22,13 @@ namespace PolovniAutomobili.Data
             };
         }
 
+        public Automobil Add(Automobil newCar)
+        {
+            newCar.Id = _cars.Max(c => c.Id) + 1;
+            _cars.Add(newCar);
+            return newCar;
+        }
+
         public Automobil GetById(int id)
         {
             return _cars.FirstOrDefault(c => c.Id == id);
@@ -35,6 +42,17 @@ namespace PolovniAutomobili.Data
                        orderby c.Description
                        select c;
             return cars;
+        }
+
+        public Automobil Update(Automobil updatedCar)
+        {
+            var car = _cars.FirstOrDefault(c => c.Id == updatedCar.Id);
+            if (car != null)
+            {
+                car.Description = updatedCar.Description;
+                car.Gorivo = updatedCar.Gorivo;
+            }
+            return car;
         }
     }
 }

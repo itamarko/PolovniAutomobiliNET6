@@ -22,8 +22,10 @@
             <td>@car.Description</td>
             <td>@car.Gorivo</td>
             <td><a class="btn btn-lg" asp-page="./Detail" asp-route-carId="@car.Id">Detalji</a></td>
+            <td><a class="btn btn-lg" asp-page="./Edit" asp-route-carId="@car.Id">Izmeni</a></td>
         </tr>
     }
 </table>
 
+<a class="btn btn-primary" asp-page="./Edit">Add new car</a>
 @Model.Message;

@@ -9,6 +9,8 @@ namespace PolovniAutomobili.Pages.Automobili
     {
         private readonly IAutomobiliData _data;
         public Automobil Car { get; set; }
+        [TempData]
+        public string Message { get; set; }
         public DetailModel(IAutomobiliData data)
         {
             _data = data;

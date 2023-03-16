@@ -11,5 +11,7 @@ namespace PolovniAutomobili.Data
     {
         IEnumerable<Automobil> GetCarsByDescriotion(string description);
         Automobil GetById(int id);
+        Automobil Update(Automobil updatedCar);
+        Automobil Add(Automobil newCar);
     }
 }

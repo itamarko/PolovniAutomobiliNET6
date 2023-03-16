@@ -21,9 +21,17 @@ namespace PolovniAutomobili.Data
                 new Automobil() { Id = 4, Description = "Audi Q3", Gorivo = Enums.GorivoVrsta.Benzin  },
             };
         }
-        IEnumerable<Automobil> IAutomobiliData.GetAll()
+
+        public Automobil GetById(int id)
+        {
+            return _cars.FirstOrDefault(c => c.Id == id);
+            
+        }
+
+        public IEnumerable<Automobil> GetCarsByDescriotion(string description)
         {
             var cars = from c in _cars
+                       where String.IsNullOrEmpty(description) || c.Description.ToLower().Contains(description.ToLower())
                        orderby c.Description
                        select c;
             return cars;

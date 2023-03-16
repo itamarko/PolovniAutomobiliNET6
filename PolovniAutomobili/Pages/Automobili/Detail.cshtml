@@ -1,0 +1,10 @@
+﻿@page "{carId:int}"
+@model PolovniAutomobili.Pages.Automobili.DetailModel
+@{
+}
+
+<h1>@Model.Car.Description</h1>
+<div>@Model.Car.Id</div>
+<h3>@Model.Car.Gorivo</h3>
+
+<a asp-page="./List" class="btn btn-primary">All cars</a>

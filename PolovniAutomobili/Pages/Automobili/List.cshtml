@@ -4,6 +4,16 @@
 }
 <h1>Automobili</h1>
 
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control" asp-for="SearchTerm" />
+            <button class="btn btn-primary">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </div>
+</form>
 <table class="table">
     @foreach(var car in Model.Cars)
     {
@@ -11,6 +21,7 @@
             <td>@car.Id</td>
             <td>@car.Description</td>
             <td>@car.Gorivo</td>
+            <td><a class="btn btn-lg" asp-page="./Detail" asp-route-carId="@car.Id">Detalji</a></td>
         </tr>
     }
 </table>

@@ -10,6 +10,8 @@ namespace PolovniAutomobili.Pages.Automobili
         private readonly IConfiguration _configuration;
         private readonly IAutomobiliData _automobiliData;
 
+        [BindProperty(SupportsGet =true)]
+        public string SearchTerm { get; set; }
         public string Message { get; set; }
         public IEnumerable<Automobil> Cars { get; set; }
 
@@ -21,7 +23,7 @@ namespace PolovniAutomobili.Pages.Automobili
         public void OnGet()
         {
             Message = _configuration["Message"];
-            Cars = _automobiliData.GetAll();
+            Cars = _automobiliData.GetCarsByDescriotion(SearchTerm);
         }
     }
 }

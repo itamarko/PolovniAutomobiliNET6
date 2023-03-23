@@ -48,6 +48,11 @@ namespace PolovniAutomobili.Data
             return query;
         }
 
+        public int GetNumberOfCars()
+        {
+            return db.Car.Count();
+        }
+
         public Automobil Update(Automobil updatedCar)
         {
             var entity = db.Car.Attach(updatedCar);

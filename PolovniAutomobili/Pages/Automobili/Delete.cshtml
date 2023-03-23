@@ -1,0 +1,14 @@
+﻿@page "{carId:int}"
+@model PolovniAutomobili.Pages.Automobili.DeleteModel
+@{
+}
+
+<h2>Brisanje automobila</h2>
+<div class="alert alert-danger">
+    Da li ste sigurni da zelite da obrisete automobil @Model.Car.Name?
+</div>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Da</button>
+    <a asp-page="List" class="btn btn-primary">Odustani</a>
+</form>

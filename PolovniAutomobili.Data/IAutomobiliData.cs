@@ -14,5 +14,6 @@ namespace PolovniAutomobili.Data
         Automobil Update(Automobil updatedCar);
         Automobil Add(Automobil newCar);
         Automobil Delete(int id);
+        int GetNumberOfCars();
     }
 }

@@ -1,0 +1,18 @@
+﻿@using PolovniAutomobili.Core
+@model Automobil
+
+<div class="card text-center">
+    <div class="card-header">
+        <h3>@Model.Name</h3>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Opis: @Model.Description</h5>
+        <p class="card-text">Gorivo: @Model.Gorivo</p>
+        <a class="btn btn-primary" asp-page="./Detail" asp-route-carId="@Model.Id">Detaljnije</a>
+    </div>
+    <div class="card-footer text-muted">
+        <a class="fas fa-search" asp-page="./Detail" asp-route-carId="@Model.Id">Detalji</a>
+        <a class="fas fa-edit" asp-page="./Edit" asp-route-carId="@Model.Id">Edit</a>
+        <a class="fas fa-trash" asp-page="./Delete" asp-route-carId="@Model.Id">Delete</a>
+    </div>
+</div>

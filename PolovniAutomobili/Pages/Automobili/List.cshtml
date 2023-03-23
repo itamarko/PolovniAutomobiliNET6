@@ -14,19 +14,11 @@
         </div>
     </div>
 </form>
-<table class="table">
-    @foreach(var car in Model.Cars)
-    {
-        <tr>
-            <td>@car.Id</td>
-            <td>@car.Name</td>
-            <td>@car.Description</td>
-            <td>@car.Gorivo</td>
-            <td><a class="btn btn-lg" asp-page="./Detail" asp-route-carId="@car.Id">Detalji</a></td>
-            <td><a class="btn btn-lg" asp-page="./Edit" asp-route-carId="@car.Id">Izmeni</a></td>
-        </tr>
-    }
-</table>
+
+@foreach(var car in Model.Cars)
+{
+    <partial name="_Summary" model="car"/>
+}
 
 <a class="btn btn-primary" asp-page="./Edit">Add new car</a>
 @Model.Message;

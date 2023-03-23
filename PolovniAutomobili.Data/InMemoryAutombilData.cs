@@ -15,10 +15,10 @@ namespace PolovniAutomobili.Data
         {
             _cars = new List<Automobil>()
             {
-                new Automobil() { Id = 1, Description = "Audi A3", Gorivo = Enums.GorivoVrsta.Benzin  },
-                new Automobil() { Id = 2, Description = "Audi A4", Gorivo = Enums.GorivoVrsta.Dizel  },
-                new Automobil() { Id = 3, Description = "Audi Q2", Gorivo = Enums.GorivoVrsta.Hibrid  },
-                new Automobil() { Id = 4, Description = "Audi Q3", Gorivo = Enums.GorivoVrsta.Benzin  },
+                new Automobil() { Id = 1, Name = "Audi A3", Description = "Audi A3", Gorivo = Enums.GorivoVrsta.Benzin  },
+                new Automobil() { Id = 2, Name = "Audi A4", Description = "Audi A4", Gorivo = Enums.GorivoVrsta.Dizel  },
+                new Automobil() { Id = 3, Name = "Audi Q2", Description = "Audi Q2", Gorivo = Enums.GorivoVrsta.Hibrid  },
+                new Automobil() { Id = 4, Name = "Audi Q3", Description = "Audi Q3", Gorivo = Enums.GorivoVrsta.Benzin  },
             };
         }
 
@@ -29,16 +29,26 @@ namespace PolovniAutomobili.Data
             return newCar;
         }
 
+        public Automobil Delete(int id)
+        {
+            Automobil car = _cars.FirstOrDefault(c => c.Id == id);
+            if (car != null)
+            {
+                _cars.Remove(car);
+            }
+            return car;
+        }
+
         public Automobil GetById(int id)
         {
             return _cars.FirstOrDefault(c => c.Id == id);
             
         }
 
-        public IEnumerable<Automobil> GetCarsByDescriotion(string description)
+        public IEnumerable<Automobil> GetCarsByName(string name)
         {
             var cars = from c in _cars
-                       where String.IsNullOrEmpty(description) || c.Description.ToLower().Contains(description.ToLower())
+                       where String.IsNullOrEmpty(name) || c.Description.ToLower().Contains(name.ToLower())
                        orderby c.Description
                        select c;
             return cars;
@@ -49,6 +59,7 @@ namespace PolovniAutomobili.Data
             var car = _cars.FirstOrDefault(c => c.Id == updatedCar.Id);
             if (car != null)
             {
+                car.Name = updatedCar.Name;
                 car.Description = updatedCar.Description;
                 car.Gorivo = updatedCar.Gorivo;
             }

@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using PolovniAutomobili.Data;
 
 namespace PolovniAutomobili
@@ -8,8 +9,13 @@ namespace PolovniAutomobili
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddDbContextPool<PolovniAutomobiliDbContext>(options=>
+                {
+                    options.UseSqlServer(builder.Configuration["PolovniAutomobiliDbConn"]);
+                }
+            );
             // Add services to the container.
-            builder.Services.AddSingleton<IAutomobiliData, InMemoryAutombilData>();
+            builder.Services.AddScoped<IAutomobiliData, SqlCarData>();
             builder.Services.AddRazorPages();
 
             var app = builder.Build();

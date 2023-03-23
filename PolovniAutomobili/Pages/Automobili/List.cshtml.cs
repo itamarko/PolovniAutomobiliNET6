@@ -23,7 +23,7 @@ namespace PolovniAutomobili.Pages.Automobili
         public void OnGet()
         {
             Message = _configuration["Message"];
-            Cars = _automobiliData.GetCarsByDescriotion(SearchTerm);
+            Cars = _automobiliData.GetCarsByName(SearchTerm);
         }
     }
 }

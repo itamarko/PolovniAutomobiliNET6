@@ -9,9 +9,10 @@ namespace PolovniAutomobili.Data
 {
     public interface IAutomobiliData
     {
-        IEnumerable<Automobil> GetCarsByDescriotion(string description);
+        IEnumerable<Automobil> GetCarsByName(string name);
         Automobil GetById(int id);
         Automobil Update(Automobil updatedCar);
         Automobil Add(Automobil newCar);
+        Automobil Delete(int id);
     }
 }
